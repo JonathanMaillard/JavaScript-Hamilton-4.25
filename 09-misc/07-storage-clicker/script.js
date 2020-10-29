@@ -13,4 +13,22 @@
 
     // your code here
 
+    const counter = document.getElementById('target');
+
+    let clickCount = localStorage.getItem('click');
+
+    if(clickCount){
+        counter.innerHTML = clickCount;
+    }
+    
+    
+    document.getElementById('increment').addEventListener("click", function(){
+
+        clickCount++;
+        localStorage.setItem('click', clickCount);
+        
+        counter.innerHTML = clickCount;
+
+    })
+
 })();
