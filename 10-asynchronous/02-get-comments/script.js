@@ -30,7 +30,7 @@
                            article.comments = comments;
                        }
                        if(++i===articles.length){
-                        console.log(articles);
+                        console.log(article);
                       }
                    }); 
                 });
