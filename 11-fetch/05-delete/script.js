@@ -14,17 +14,17 @@
 
     document.getElementById('run').addEventListener("click", () => {
         
-        const targetId = +document.getElementById('hero-id').value;
+        const targetId = document.getElementById('hero-id').value;
 
-        fetch('http://localhost:3000/heroes')
-            .then(response => response.json())
-            .then(data => {
-        
-                data.splice(targetId-1, 1);
+       
+            fetch('http://localhost:3000/heroes/' + targetId, {
+                method: 'DELETE',
+            })
+              
 
-                console.log(data);
-                
-            });
+            fetch('http://localhost:3000/heroes')
+              .then(response => response.json())
+              .then(data => {console.log(data)});
         
      });
 })();
