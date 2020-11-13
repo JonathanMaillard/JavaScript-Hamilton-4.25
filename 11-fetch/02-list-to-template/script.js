@@ -33,16 +33,20 @@
                     let alterEgo = clone.querySelector(".alter-ego");
                     alterEgo.textContent = xmen.alterEgo;
 
-                    let ability = clone.querySelector(".powers");
+                    let abilityList = clone.querySelector(".powers");
 
-                    xmen.abilities.forEach(ability =>{
-                        //let ability = clone.querySelector(".powers");
-                        //ability.textContent = this;
-                        console.log(ability);
+                    xmen.abilities.forEach(ability => {
+                        
+                        if(abilityList.textContent){
+                            abilityList.textContent = abilityList.textContent + " / " + ability; 
+                        } else {
+                            abilityList.textContent = ability; 
+                        }
+
                     })
 
                     target.appendChild(clone); 
-                    //console.log(xmen.name);
+                    
                 });
             });
         
