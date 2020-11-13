@@ -11,4 +11,20 @@
 
 (() => {
     // your code here
+
+    document.getElementById('run').addEventListener("click", () => {
+        
+        const targetId = +document.getElementById('hero-id').value;
+
+        fetch('http://localhost:3000/heroes')
+            .then(response => response.json())
+            .then(data => {
+        
+                data.splice(targetId-1, 1);
+
+                console.log(data);
+                
+            });
+        
+     });
 })();

@@ -11,4 +11,31 @@
 
 (() => {
     // your code here
+
+    document.getElementById('run').addEventListener("click", () => {
+        
+        const formName = document.getElementById('hero-name').value;
+        const formAlterEgo = document.getElementById('hero-alter-ego').value;
+        const formPowers = [document.getElementById('hero-powers').value];
+
+        fetch('http://localhost:3000/heroes')
+            .then(response => response.json())
+            .then(data => {
+        
+                if(formName && formAlterEgo && formPowers){
+                         
+                    let newXmen = new Object();
+                    newXmen.id = data.length + 1;
+                    newXmen.name = formName;
+                    newXmen.alterEgo = formAlterEgo;
+                    newXmen.abilities = formPowers;
+                    data.push(newXmen);
+                    
+                }
+
+                console.log(data);
+                
+            });
+        
+     });
 })();
